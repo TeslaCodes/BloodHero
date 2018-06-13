@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 //iterating through all the nodes
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //getting artist
                     AddEntry artist = postSnapshot.getValue(AddEntry.class);
                     //adding artist to the list
                     artists.add(artist);
@@ -160,6 +159,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
+            case R.id.dashboard_amd:
+                Intent home=new Intent(MainActivity.this, Dashboard.class);
+                startActivity(home);
+                break;
             case R.id.ap:
                 Intent pt=new Intent(MainActivity.this,Tags.class);
                 pt.putExtra("tag","A+");
@@ -200,8 +203,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(feed);
                 break;
             case R.id.notifications_amd:
-                Intent notify=new Intent(MainActivity.this,Notifications.class);
-                startActivity(notify);
+                Toast.makeText(getApplicationContext(),"Ska ende Notfication", Toast.LENGTH_LONG).show();
+//                Intent notify=new Intent(MainActivity.this,Notifications.class);
+//                startActivity(notify);
+                break;
+            case R.id.useradd_amd:
+                Intent useradd=new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(useradd);
                 break;
         }
 
